@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>APKify — Website to APK</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <div class="brand">APK<span>ify</span></div>
+  <div class="badge">REAL APK BUILDER V1</div>
+</header>
+
+<main>
+<section class="hero">
+  <p class="eyebrow">BUILD ANDROID APPS</p>
+  <h1>Ubah website kamu<br><span>menjadi APK.</span></h1>
+  <p class="sub">URL, HTML, atau ZIP → Android WebView APK melalui Android SDK + Gradle.</p>
+</section>
+
+<form id="form" class="card">
+  <div class="section-title">01 / Data APK</div>
+
+  <label>Nama aplikasi
+    <input id="name" name="name" placeholder="Contoh: My Website" required>
+  </label>
+
+  <div class="grid">
+    <label>Package name
+      <input id="packageName" name="packageName" value="com.example.apkify" required>
+    </label>
+    <label>Versi aplikasi
+      <input id="version" name="version" value="1.0.0" required>
+    </label>
+  </div>
+
+  <div class="section-title">02 / Sumber konten</div>
+  <div class="source-tabs">
+    <button type="button" class="source active" data-source="link">LINK</button>
+    <button type="button" class="source" data-source="html">HTML</button>
+    <button type="button" class="source" data-source="zip">ZIP</button>
+  </div>
+
+  <input type="hidden" id="sourceType" name="sourceType" value="link">
+  <label id="linkBox">URL website
+    <input id="sourceValue" name="sourceValue" placeholder="https://example.com">
+  </label>
+  <label id="fileBox" class="hidden">File HTML / ZIP
+    <input id="sourceFile" type="file" accept=".html,.htm,.zip">
+  </label>
+
+  <div class="section-title">03 / Perizinan aplikasi</div>
+  <div class="permissions">
+    <label class="perm"><input type="checkbox" name="permission" value="INTERNET" checked> Internet</label>
+    <label class="perm"><input type="checkbox" name="permission" value="ACCESS_NETWORK_STATE"> Status Wi-Fi / Network</label>
+    <label class="perm"><input type="checkbox" name="permission" value="RECORD_AUDIO"> Rekam Audio</label>
+    <label class="perm"><input type="checkbox" name="permission" value="CAMERA"> Kamera</label>
+    <label class="perm"><input type="checkbox" name="permission" value="ACCESS_FINE_LOCATION"> Location</label>
+    <label class="perm"><input type="checkbox" name="permission" value="READ_MEDIA_IMAGES"> Galeri Foto</label>
+    <label class="perm"><input type="checkbox" name="permission" value="READ_MEDIA_VIDEO"> Galeri Video</label>
+    <label class="perm"><input type="checkbox" name="permission" value="BLUETOOTH_CONNECT"> Bluetooth</label>
+    <label class="perm"><input type="checkbox" name="permission" value="POST_NOTIFICATIONS"> Notifikasi</label>
+    <label class="perm"><input type="checkbox" name="permission" value="VIBRATE"> Vibration</label>
+    <label class="perm"><input type="checkbox" name="permission" value="WAKE_LOCK"> Wake Lock</label>
+  </div>
+
+  <button class="build" type="submit">BUILD APK →</button>
+  <div id="status" class="status">Ready.</div>
+</form>
+
+<section id="result" class="card result hidden"></section>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>
